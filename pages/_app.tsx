@@ -44,6 +44,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     return null;
   }
 
+  const changeLanguage = (event: boolean) => {
+    if (event) {
+      router.push(router.asPath, router.asPath, { locale: 'en-US' })
+    } else {
+      router.push(router.asPath, router.asPath, { locale: 'id' })
+    }
+  }
+
 
   return (
     <>
@@ -78,7 +86,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </StyledTitleLogo>
           </StyledLogo> */}
           <StyledSwitch>
-            <Switch checkedChildren="ID" unCheckedChildren="EN" defaultChecked />
+            <Switch checkedChildren="EN" unCheckedChildren="ID" defaultChecked onClick={(e) => { changeLanguage(e) }} />
           </StyledSwitch>
           <Menu theme="dark" mode="horizontal">
             <Menu.Item onClick={() => router.push('/')} className={router.pathname == '/' ? 'ant-menu-item-selected':'ant-menu-item-unselected'} key="1">List Content</Menu.Item>
@@ -93,3 +101,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp
+

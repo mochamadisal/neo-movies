@@ -2,6 +2,7 @@ import axios from 'axios';
 import { SyntheticEvent, useContext, useEffect, useState, useMemo } from 'react';
 import type { NextPage } from 'next'
 import { ContentProvider, ContentStore } from '../context/contentCtx';
+import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton, message } from 'antd';
 
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
   const [ page, setPage ] = useState(1)
   const [totalPage, setTotalPage] = useState(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const handleScroll = (e: HandleScrollProps) => {
     const { currentTarget } = e;
@@ -75,8 +77,8 @@ const Home: NextPage = () => {
       <div className="site-layout-background" style={{ padding: 24, height: '85vh', overflow: 'scroll' }} onScroll={handleScroll}>
         <Row gutter={[16, 24]}>
             <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-                <h1> Welcome to neo movie </h1>
-                <p> Enjoy the moive with family or with your special person </p>
+                <h1>{t("common:title")}</h1>
+                <p>{t("common:desc")}</p>
             </Col>
         </Row>
         <Row gutter={[16, 24]}>

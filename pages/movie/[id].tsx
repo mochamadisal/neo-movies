@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next'
+import useTranslation from "next-translate/useTranslation";
 
 import { Layout, Row, Col, Skeleton, Rate, Button, message, Modal } from 'antd';
 import { LikeOutlined, FileOutlined, ArrowLeftOutlined } from '@ant-design/icons';
@@ -29,6 +30,7 @@ const Detail: NextPage = () => {
   const [isFavourite, setFavourite] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const router = useRouter()
+  const { t } = useTranslation();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -135,8 +137,8 @@ const Detail: NextPage = () => {
       <div className="site-layout-background" style={{ padding: 24, height: '85vh', overflow: 'scroll' }}>
         <Row gutter={[16, 24]}>
             <Col className="gutter-row" xs={24} sm={24} md={24} lg={24} xl={24}>
-                <h1><ArrowLeftOutlined className="cursor-pointer" onClick={() => { router.back() }} /> Detail page neo movie </h1>
-                <p>Watch more than 1,000 hours of movies comfortably only on neo movie</p>
+                <h1><ArrowLeftOutlined className="cursor-pointer" onClick={() => { router.push('/') }} /> {t("movie:title")} </h1>
+                <p>{t("movie:desc")}</p>
             </Col>
         </Row>
         {!isLoading && <Row gutter={[16, 24]}>
@@ -146,10 +148,10 @@ const Detail: NextPage = () => {
             <Col className="gutter-row" xs={24} sm={24} md={15} lg={15} xl={15}>
                 <h1> {getDetailContent.title} </h1>
                 <Rate disabled defaultValue={getDetailContent.rating} />
-                <p>Genre : {getDetailContent.genre}</p>
-                <p>Duration : {getDetailContent.duration}</p>
-                <p>Cast : {setDataToString(getDetailContent.starring)}</p>
-                <p>Release : {getDetailContent.releaseDate}</p>
+                <p>{t("movie:genre")} : {getDetailContent.genre}</p>
+                <p>{t("movie:duration")} : {getDetailContent.duration}</p>
+                <p>{t("movie:cast")} : {setDataToString(getDetailContent.starring)}</p>
+                <p>{t("movie:release")} : {getDetailContent.releaseDate}</p>
                 <p>{getDetailContent.desc}</p>
                 <Button size="large" onClick={() => { actionLike(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} className={isLike ? 'active-color mr-8p':'mr-8p'} shape="circle" icon={<LikeOutlined />} />
                 <Button size="large" onClick={() => { actionFavourite(getDetailContent.id, getDetailContent.title, getDetailContent.year, getDetailContent.rating, getDetailContent.imageUrl) }} shape="circle" className={isFavourite ? 'active-color':''} icon={<FileOutlined />} />
