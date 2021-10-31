@@ -1,0 +1,56 @@
+$defaultPrimary : #28b796;
+$defaultSecondary : #F6F6F6;
+$defaultSecondaryDark : #274653;
+$defaultWhite : #ffffff;
+$defaultBlack : #333333;
+$errorColor : #bd362f;
+$successColor : #55ca92;
+$greyColor : #9292A0;
+$greyLightColor : #d4d4f0;
+$defaultBackground : #EFEFEF;
+
+
+:root{
+    //color text
+    --primary-text-color : #{$defaultPrimary};
+    --white-text-color: #{$defaultWhite};
+    --error-text-color: #{$errorColor};
+    --black-text-color: #{$defaultBlack};
+    --grey-text-color: #{$greyColor};
+    --greyLight-text-color: #{$greyLightColor};
+    //end color text
+
+    //background color
+    --default-background-color : #{$defaultBackground};
+    --white-background-color : #{$defaultWhite};
+    --primary-background-color : #{$defaultPrimary};
+    --secondary-background-color : #{$defaultSecondary};
+    --secondary-dark-background-color : #{$defaultSecondaryDark};
+    --success-background-color : #{$successColor};
+    //end background color
+
+    //font size
+    --font-size-10 : 10px;
+    --font-size-12 : 12px;
+    --font-size-14 : 14px;
+    --font-size-16 : 16px;
+    --font-size-18 : 18px;
+    --font-size-20 : 20px;
+    --font-size-22 : 22px;
+    --font-size-24 : 24px;
+    --font-size-26 : 26px;
+    --font-size-28 : 28px;
+    --font-size-30 : 30px;
+    --font-size-32 : 32px;
+    --font-size-34 : 34px;
+    --font-size-36 : 36px;
+    //end font size
+
+    //font weight
+    --font-weight-300 : 300;
+    --font-weight-400 : 400;
+    --font-weight-500 : 500;
+    --font-weight-600 : 600;
+    --font-weight-700 : 700;
+    //end font weight
+}
